@@ -21,3 +21,7 @@ DOM.prototype.off = function off(eventType, callback){
 DOM.prototype.get = function get() {
     return this.element;
 }
+
+DOM.prototype.forEach = function forEach() {
+    return Array.prototype.forEach.apply(this.element, arguments);
+}
