@@ -34,4 +34,10 @@ DOM.prototype.filter = function filter() {
     return Array.prototype.filter.apply(this.element, arguments);
 }
 
+DOM.prototype.reduce = function reduce() {
+    return Array.prototype.reduce.apply(this.element, arguments);
+}
+DOM.prototype.reduceRight = function reduceRight() {
+    return Array.prototype.reduceRight.apply(this.element, arguments);
+}
 
