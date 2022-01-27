@@ -15,13 +15,13 @@
     </header>
     <div class="formulario">
       <form data-js="forCEP">
-        <input type="text" data-js="inicial" />
+        <input type="text" data-js="inicial" maxlength="9" placeholder="00000-000"/>
         <button type="submit">Consultar CEP</button>
       </form>
     </div>
 
     <div data-js="inforCep">
-      <div data-js="carregando"><h2 data-js="status"></h2></div>
+      <div  class=carregando data-js="carregando"><h2 data-js="status"></h2></div>
       <br />
       <p><strong>Logradouro:</strong> <span data-js="logradouro"></span></p>
       <p><strong>Bairro:</strong> <span data-js="bairro"></span></p>
@@ -29,5 +29,6 @@
       <p><strong>Estado:</strong> <span data-js="estado"></span></p>
       <p><strong>CEP:</strong> <span data-js="cep"></span></p>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>
