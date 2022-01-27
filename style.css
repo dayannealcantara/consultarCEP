@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Montserrat+Alternates:wght@200;400&family=Overpass:wght@300;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #215f5a;
+  text-align: center;
+  padding-top: 80px;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+h1 {
+  padding-bottom: 20px;
+}
