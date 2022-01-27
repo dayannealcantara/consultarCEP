@@ -25,3 +25,13 @@ DOM.prototype.get = function get() {
 DOM.prototype.forEach = function forEach() {
     return Array.prototype.forEach.apply(this.element, arguments);
 }
+
+DOM.prototype.map = function map() {
+    return Array.prototype.map.apply(this.element, arguments);
+}
+
+DOM.prototype.filter = function filter() {
+    return Array.prototype.filter.apply(this.element, arguments);
+}
+
+
