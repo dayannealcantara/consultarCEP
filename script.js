@@ -17,3 +17,7 @@ DOM.prototype.off = function off(eventType, callback){
         element.removeEventListener(eventType, callback, false)
     })
 };
+
+DOM.prototype.get = function get() {
+    return this.element;
+}
