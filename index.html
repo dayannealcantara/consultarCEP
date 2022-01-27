@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buscando Endereço</title>
-    <link rel="shortcut icon" href="./imagens/globo.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="shortcut icon" href="./imagens/globo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <h1>Busque o endereço</h1>
-        <h3>Preencha com o CEP para saber o  endereço</h3>
+      <h1>Busque o endereço</h1>
+      <h3>Preencha com o CEP para saber o endereço</h3>
     </header>
     <div class="formulario">
-        <form class="forCEP">
-            <input type="text" class="inicial">
-            <button type="submit">Consultar CEP</button>
-        </form>
+      <form class="forCEP">
+        <input type="text" class="inicial" />
+        <button type="submit">Consultar CEP</button>
+      </form>
     </div>
-    
-</body>
+
+    <div class="inforCep">
+      <div class="carregando"><h2 class="status"></h2></div>
+      <br />
+      <p><strong>Logradouro:</strong> <span class="logradouro"></span></p>
+      <p><strong>Bairro:</strong> <span class="bairro"></span></p>
+      <p><strong>Cidade:</strong> <span class="cidade"></span></p>
+      <p><strong>Estado:</strong> <span class="estado"></span></p>
+      <p><strong>CEP:</strong> <span class="cep"></span></p>
+    </div>
+  </body>
 </html>
