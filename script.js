@@ -7,7 +7,7 @@ DOM.prototype.getDOMElements = function getDOMElements(elements) {
 };
 
 DOM.prototype.on = function on(eventType, callback) {
-  Array.prototype.forEach.call(this.element, function (element) {
+  Array.prototype.forEach.call(this.element, function(element) {
     element.addEventListener(eventType, callback, false);
   });
 };
@@ -45,6 +45,10 @@ DOM.prototype.every = function every() {
   return Array.prototype.every.apply(this.element, arguments);
 };
 
+DOM.prototype.some = function some() {
+    return Array.prototype.some.apply(this.element, arguments);
+  }
+  
 DOM.prototype.isArray = function isArray(param) {
   return Object.prototype.toString.call(param) === "[object Array]";
 };
@@ -88,8 +92,7 @@ var cep = new DOM('[data-js="cep"]');
 
 cep.on("submit", handleSubmitCep);
 
-function handleSubmitCep(e) {
-  e.preventDefault();
+function handleSubmitCep(event) { 
   var url = getUrl();
   ajax.open("GET", url);
   ajax.send();
@@ -106,7 +109,7 @@ function clearCEP() {
 }
 
 function handleReadyStateChange() {
-  if (isRequestOk()) {
+  if(isRequestOk()) {
     getMessage("ok");
     fillCEPFields();
   }
@@ -128,4 +131,38 @@ bairro.get()[0].textContent = data.bairro;
 cidade.get()[0].textContent = data.localidade;
 estado.get()[0].textContent = data.uf;
 cep.get()[0].textContent = data.cep;
+}
+
+function clearData() {
+    return {
+        logradouro: '',
+        bairro: '',
+        localidade:'',
+        uf:'',
+        cep: '',
+    }
+}
+
+function parseData() {
+    var result;
+     try{
+         result = JSON.parse(ajax.responseText)
+     }
+     catch(e){
+         result = null
+     }
+     return result;
+}
+
+function getMessage(type) {
+    var messages = {
+        loading: replaceCEP('Buscando informações para o CEP [CEP] ...'),
+        ok: replaceCEP('Endereço referente ao CEP [CEP] : '),
+        error: replaceCEP('Não encontramos o endereço para o CEP [CEP] .'),
+    };
+    Status.get()[0].textContent = messages[type];
+}
+
+function replaceCEP(message) {
+    return message.replace('[CEP]', clearCEP());
 }
