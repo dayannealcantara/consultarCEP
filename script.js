@@ -48,7 +48,7 @@ DOM.prototype.every = function every() {
 DOM.prototype.some = function some() {
     return Array.prototype.some.apply(this.element, arguments);
   }
-  
+
 DOM.prototype.isArray = function isArray(param) {
   return Object.prototype.toString.call(param) === "[object Array]";
 };
@@ -80,7 +80,7 @@ DOM.prototype.isNull = function isNull(param) {
   );
 };
 
-var cep = new DOM('[data-js="formCEP"]');
+var formCEP = new DOM('[data-js="formCEP"]');
 var inputCEP = new DOM('[data-js="inicial"]');
 var ajax = new XMLHttpRequest();
 var Status = new DOM('[data-js="status"]');
@@ -90,9 +90,10 @@ var estado = new DOM('[data-js="estado"]');
 var cidade = new DOM('[data-js="cidade"]');
 var cep = new DOM('[data-js="cep"]');
 
-cep.on("submit", handleSubmitCep);
+formCEP.on("submit", handleSubmitformCEP);
 
-function handleSubmitCep(event) { 
+function handleSubmitformCEP(event) { 
+    event.preventDefault();
   var url = getUrl();
   ajax.open("GET", url);
   ajax.send();
