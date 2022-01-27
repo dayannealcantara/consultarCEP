@@ -94,3 +94,10 @@ function handleSubmitCep (e) {
     ajax.addEventListener('readystatechange', handleReadyStateChange)
 }
 
+function getUrl(){
+    return 'https://viacep.com.br/ws/[CEP]/json/'.replace('[CEP]', clearCEP() );
+}
+
+function clearCEP() {
+    return inputCEP.get()[0].value.replace(/\D/g, '');
+}
