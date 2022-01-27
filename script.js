@@ -41,3 +41,34 @@ DOM.prototype.reduceRight = function reduceRight() {
     return Array.prototype.reduceRight.apply(this.element, arguments);
 }
 
+DOM.prototype.every = function every() {
+    return Array.prototype.every.apply(this.element, arguments);
+}
+
+DOM.prototype.isArray = function isArray(param) {
+    return Object.prototype.toString.call(param) === '[object Array]';
+};
+
+DOM.prototype.isObject = function isObject(param) {
+    return Object.prototype.toString.call(param) === '[object Object]';
+};
+
+DOM.prototype.isFunction = function isFunction(param) {
+    return Object.prototype.toString.call(param) === '[object Function]';
+};
+
+DOM.prototype.isNumber = function isNumber(param) {
+    return Object.prototype.toString.call(param) === '[object Number]';
+};
+
+DOM.prototype.isString = function isString(param) {
+    return Object.prototype.toString.call(param) === '[object String';
+};
+
+DOM.prototype.isBoolean = function isBoolean(param) {
+    return Object.prototype.toString.call(param) === '[object Boolean]';
+};
+
+DOM.prototype.isNull = function isNull(param) {
+    return Object.prototype.toString.call(param) === '[object Null]' || Object.prototype.toString.call(param) === '[object Undefined]';
+};
