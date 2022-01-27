@@ -72,3 +72,25 @@ DOM.prototype.isBoolean = function isBoolean(param) {
 DOM.prototype.isNull = function isNull(param) {
     return Object.prototype.toString.call(param) === '[object Null]' || Object.prototype.toString.call(param) === '[object Undefined]';
 };
+
+var cep = new DOM('[data-js="formCEP"]');
+var inputCEP = new DOM('[data-js="inicial"]');
+var ajax = new XMLHttpRequest();
+var Status = new DOM('[data-js="status"]');
+var logradouro = new DOM( '[data-js="logradouro"]');
+var bairro = new DOM( '[data-js="bairro"]');
+var estado = new DOM( '[data-js="estado"]');
+var cidade = new DOM( '[data-js="cidade"]');
+var cep = new DOM( '[data-js="cep"]');
+
+
+cep.on('submit', handleSubmitCep);
+
+function handleSubmitCep (e) {
+    e.preventDefault();
+    var url = getUrl();
+    ajax.open('GET', url)
+    ajax.send();
+    ajax.addEventListener('readystatechange', handleReadyStateChange)
+}
+
